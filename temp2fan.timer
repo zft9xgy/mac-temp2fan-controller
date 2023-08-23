@@ -1,0 +1,8 @@
+[Unit]
+Description=Temp2fan controler timer, run every 5 seconds.
+
+[Timer]
+OnUnitActiveSec=5
+
+[Install]
+WantedBy=timers.target

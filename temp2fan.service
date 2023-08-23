@@ -1,0 +1,9 @@
+[Unit]
+Description=A temperature and fan controler manager daemon for Mac
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/temp2fan-controler.sh
+
+[Install]
+WantedBy=multi-user.target
