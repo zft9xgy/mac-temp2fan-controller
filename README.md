@@ -8,6 +8,8 @@ If you have any questions, find bugs, or think you can improve, feel free to ope
 
 ## The reason for this script
 
+TL;DR
+
 Due to the fact that apple limits the updates of the devices after a while, I decided to install linux (i use arch btw) on my old iMac late 2009 to give it a new life. I quickly noticed that the fans were running at full speed and were not regulated properly.
 
 I did some research until I ended up installing mbpfan which you probably already know about. There are other developments out there but most of them were made for Macbooks, which apparently only have one fan.
@@ -56,7 +58,7 @@ $ sudo pacman -Sy lm_sensors
 - Ubuntu ref: https://www.cyberciti.biz/faq/install-sensors-lm-sensors-on-ubuntu-debian-linux/
 - Arch Wiki: https://wiki.archlinux.org/title/lm_sensors
 
-Por otro lado, puedes comprobar si tienes cargado el kernel de applesmc con el siguiente código.
+On the other hand, you can check if you have the applesmc kernel loaded with the following code.
 
 ```bash
 $ cd /sys/devices/platform/applesmc.768
@@ -65,6 +67,10 @@ $ ls -1
 
 You should have a list of temperature and fan files.
 -> insert screenshot here
+
+## Incopatibilities
+
+As this is a first version I haven't found any incompatibilities yet, but possibly other daemons that try to control the temperature may cause conflicts with this one... if possible disable daemons like mbpfan or macfanltd or similar.
 
 ## Install
 
@@ -130,6 +136,7 @@ Just a list of ideas that could be potential to implement
 
 - cure content and add comments to the scripts
 - add screenshots
+- double check on readme and cure info
 
 ### Features ideas
 
