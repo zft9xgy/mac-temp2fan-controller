@@ -95,7 +95,7 @@ OnUnitActiveSec=5
 
 Replace the **5** with as many seconds as you want.
 
-## Functional check
+## Functional check
 
 To check that the script is working, you can check it in several ways.
 
@@ -120,25 +120,30 @@ If it doesn't work for you or you detect any anomaly in the execution, I'll be h
 
 If after installing it doesn't work, you have found a better controller or you just want to uninstall it, I provided a script that undoes everything that the install script does.
 
+```bash
+$ cd /path-to-script-folder/mac-temp2fan-controler/
+$ sh uninstall.sh
+```
+
 ## References
 
 Thanks to all who have contributed to the mbpfan project and to allanmcrae for that blog post.
 
-https://ineed.coffee/project/mbpfan
-http://allanmcrae.com/2010/05/simple-macbook-pro-fan-daemon/
-https://github.com/linux-on-mac/mbpfan
+- https://ineed.coffee/project/mbpfan
+- http://allanmcrae.com/2010/05/simple-macbook-pro-fan-daemon/
+- https://github.com/linux-on-mac/mbpfan
 
-## Todos / Features to implement
+## Todos / Features to implement
 
 Just a list of ideas that could be potential to implement
 
-### TO-DO
+### TO-DO
 
 - cure content and add comments/documentation to the scripts
 - add screenshots
 - double check on readme and cure info
 
-### Features ideas
+### Features ideas
 
 - change the temperature gathering system, use the applesmc module files instead of grep sensors
 - add the option to choose which type of kernel module to take as input (applesmc or coretemp) or take all or specify which applesmc module to take
