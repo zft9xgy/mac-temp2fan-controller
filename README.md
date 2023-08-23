@@ -75,8 +75,8 @@ As this is a first version I haven't found any incompatibilities yet, but possib
 ## Install
 
 ```bash
-$ git clone dir
-$ cd imac-temp2fan/
+$ git clone https://github.com/zft9xgy/mac-temp2fan-controler.git
+$ cd mac-temp2fan-controler/
 $ sh install.sh
 ```
 
@@ -93,7 +93,7 @@ If you want to change the refresh time of the script, before the installation go
 OnUnitActiveSec=5
 ```
 
-Replace the 5 with as many seconds as you want.
+Replace the **5** with as many seconds as you want.
 
 ## Functional check
 
@@ -134,7 +134,7 @@ Just a list of ideas that could be potential to implement
 
 ### TO-DO
 
-- cure content and add comments to the scripts
+- cure content and add comments/documentation to the scripts
 - add screenshots
 - double check on readme and cure info
 
