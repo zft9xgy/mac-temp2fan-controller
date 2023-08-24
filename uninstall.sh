@@ -15,7 +15,6 @@ sudo rm /usr/bin/bash/temp2fan-controler.sh
 
 echo "Service, timer and script were deleted.....done"
 
-
 sudo systemctl daemon-reload
 echo "Systemd reload.....done"
 
@@ -29,12 +28,8 @@ done
 
 echo "Fans on automatic mode on.....done"
 
-
 sudo chmod o-w /sys/devices/platform/applesmc.768/fan*_output
 sudo chmod o-w /sys/devices/platform/applesmc.768/fan*_manual
 
-
 echo "Permission reset to original state.....done"
-
 echo "Uninstallation is complete.....done"
-
