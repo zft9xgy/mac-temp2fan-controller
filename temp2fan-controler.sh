@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Working directoy
 cd /sys/devices/platform/applesmc.768

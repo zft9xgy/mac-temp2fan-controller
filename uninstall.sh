@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # uninstall script
 
 sudo systemctl stop temp2fan.service

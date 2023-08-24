@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "Password is needed for:"
 echo " - copy temp2controler to /usr/bin/bash"

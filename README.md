@@ -1,6 +1,6 @@
-# iMac temp2fan controler
+# iMac temp2fan controller
 
-temp2fan is a daemon that reads the maximum temperature of the applesmc module and adjusts the fan speed according to a driver.
+temp2fan is a daemon that reads the maximum temperature of the applesmc module and adjusts the fan speed according to a controller.
 
 Originally created for an imac because it supports multiple fans, but it is possible to use it on any mac with the applesmc kernel module.
 
@@ -75,8 +75,8 @@ As this is a first version I haven't found any incompatibilities yet, but possib
 ## Install
 
 ```bash
-$ git clone https://github.com/zft9xgy/mac-temp2fan-controler.git
-$ cd mac-temp2fan-controler/
+$ git clone https://github.com/zft9xgy/mac-temp2fan-controller.git
+$ cd mac-temp2fan-controller/
 $ sh install.sh
 ```
 
@@ -121,7 +121,7 @@ If it doesn't work for you or you detect any anomaly in the execution, I'll be h
 If after installing it doesn't work, you have found a better controller or you just want to uninstall it, I provided a script that undoes everything that the install script does.
 
 ```bash
-$ cd /path-to-script-folder/mac-temp2fan-controler/
+$ cd /path-to-script-folder/mac-temp2fan-controller/
 $ sh uninstall.sh
 ```
 
