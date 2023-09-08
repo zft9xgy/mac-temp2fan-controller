@@ -32,6 +32,8 @@ sudo chmod +x /usr/bin/temp2fan-controler.sh
 
 echo "Permission to write and execute added to corresponding files.......done"
 
+cd /sys/devices/platform/applesmc.768/
+
 # This code will set fans to manual mode.
 i=1
 for fan in fan*_manual
