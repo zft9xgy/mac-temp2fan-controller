@@ -48,10 +48,6 @@ This script makes use of the `sensors` command, which is usually loaded by defau
 
 To check that you have it installed, just type `sensors` in the terminal and the result should look something like this.
 
-This script makes use of the `sensors` command, which is usually loaded by default in many linux distributions.
-
-To check that you have it installed, just type `sensors` in the terminal and the result should look something like this.
-
 If you don't have it installed, install the `lm-sensors` package.
 
 ```bash
