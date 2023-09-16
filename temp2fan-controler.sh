@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
 
-# Working directoy
-#cd /sys/devices/platform/applesmc.768
-
 # Variables
 PATH_CONFIG="/etc/temp2fan.conf"
 PATH_APPLESMC="/sys/devices/platform/applesmc.768/"
-
 CURRENT_MAX_TEMP="$(sensors | grep T | grep + | tr -d '+' | tr -d ' ' | cut -d '=' -f2 | tr -d 'C' | cut -d ':' -f 2 | cut -d '.' -f 1 | sort -nr | head -1)" 
 FAN_NUMBERS="$(ls -1 /sys/devices/platform/applesmc.768/fan*_input | wc -l )"
-
 CONTROLER_MODE="$( cat ${PATH_CONFIG} | grep -i controler_model | tr -d ' ' | cut -d '=' -f 2 )"
 
 set_max_and_min_rpm_variable () {
@@ -28,7 +23,6 @@ set_max_and_min_rpm_variable () {
   done
 }
 
-
 calculate_fan_rpm_based_on_porcentage () {
 # $1 -> percentage
 # $2 > fan number
@@ -45,7 +39,6 @@ maxSuffix="_MAX_RPM"
   fi
 }
 
-
 set_new_rpm () {
   # $1 -> percentage 
   # apply same percentage to all fans
@@ -58,7 +51,6 @@ set_new_rpm () {
 }
 
 #controler models
-
 discrete_controler_temp2fan () {
   if [ $CURRENT_MAX_TEMP -le 65 ]
   then
@@ -96,8 +88,6 @@ discrete_controler_temp2fan () {
     set_new_rpm 100
   fi
 }
-
-
 
 # This is a linear controler for 0% rpm at 65C and 100% at 85C
 linear_controler_temp2fan () {
