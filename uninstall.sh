@@ -11,7 +11,10 @@ echo "Stop and disable service and timer.....done"
 
 sudo rm /etc/systemd/system/temp2fan.service
 sudo rm /etc/systemd/system/temp2fan.timer
-sudo rm /usr/bin/bash/temp2fan-controler.sh
+sudo rm /usr/bin/temp2fan-controler.sh
+
+# rm config file
+sudo rm /etc/temp2fan.conf
 
 echo "Service, timer and script were deleted.....done"
 
@@ -20,7 +23,7 @@ echo "Systemd reload.....done"
 
 # This code will set fans to auto mode.
 i=1
-for fan in fan*_manual
+for fan in /sys/devices/platform/applesmc.768/fan*_manual
 do
   echo 0 > $fan
   ((i = i + 1))

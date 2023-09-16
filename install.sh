@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-echo "Password is needed for:"
+echo "The next actions will be executed:"
 echo " - copy temp2controler to /usr/bin/bash"
+echo " - copy config file to /etc/temp2fan.conf"
 echo " - copy the temp2fan.service and temp2fan.timer to /etc/systemd/system"
 echo " - reload systemd"
 echo " - start and enable systemd service"
 
+# copy config to etc
+sudo cp temp2fan.conf /etc
+
 # copy service and timer to the corresponding folder
-sudo cp temp2fan-controler.sh /usr/bin/bash
+sudo cp temp2fan-controler.sh /usr/bin/
 echo "Copy temp2fan.controler.sh to /usr/bin/.......done"
 
 sudo cp temp2fan.service /etc/systemd/system/ && sudo cp temp2fan.timer /etc/systemd/system/
@@ -34,7 +38,7 @@ echo "Permission to write and execute added to corresponding files.......done"
 
 # This code will set fans to manual mode.
 i=1
-for fan in fan*_manual
+for fan in /sys/devices/platform/applesmc.768/fan*_manual
 do
   echo 1 > $fan
   ((i = i + 1))

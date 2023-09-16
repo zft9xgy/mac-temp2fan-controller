@@ -24,6 +24,7 @@ I tried to modify the code of mbpfan and adapt it but I lack knowledge of C at t
 
 This script makes use of the `sensors` command and takes all the applesmc temperatures starting with 'T'. It selects from these temperatures the maximum of them and based on this it performs a discrete control over the fans that follows the following scheme.
 
+
 - temp_max <65 fan_rpm -> min
 - temp_max > 65 fan_rpm -> 25%
 - temp_max > 70 fan_rpm -> 50%
@@ -34,6 +35,12 @@ This script makes use of the `sensors` command and takes all the applesmc temper
 This script takes into account all the fans (in the case of my iMac, 3 fans) and sets the rpm by percentage for all of them.
 
 Example: If you have a maximum temperature of 72 degrees, either in the CPU or the GPU or in any of the sensors, the controller will set the fans to 50%, calculating for each one its corresponding rpm.
+
+## Control mode
+
+Currently, there are two control modes, the default discrete control and the linear control that follows the following evolution `RPM(current_temp) = 5 * current_temp -325` and basically that is a linear evolution from 65ºC -> min rpm to 85ºC -> max rpm.
+
+To change the driver mode, modify the file /etc/temp2fan.conf
 
 ## Prerequisites and initial check
 
@@ -77,7 +84,7 @@ As this is a first version I haven't found any incompatibilities yet, but possib
 ```bash
 $ git clone https://github.com/zft9xgy/mac-temp2fan-controller.git
 $ cd mac-temp2fan-controller/
-$ sh install.sh
+$ sudo sh install.sh
 ```
 
 The script will ask you for the password because some of the commands require it. It is explained why a password is required when running the script, but you can also review the script before installing it.
@@ -86,7 +93,7 @@ The script will ask you for the password because some of the commands require it
 
 After installation you don't have to do anything else, it should be enough to have the service and the timer running in the background. The script runs every 5 seconds.
 
-If you want to change the refresh time of the script, before the installation go to the file 'temp2fan.timer" and modify the section
+If you want to change the refresh time of the script, before the installation go to the file 'temp2fan.timer" and modify the temp2fan.timer or after installition modify /etc/systemd/system/temp2fan.timer
 
 ```bash
 [Timer]
@@ -136,12 +143,6 @@ Thanks to all who have contributed to the mbpfan project and to allanmcrae for t
 ## Todos / Features to implement
 
 Just a list of ideas that could be potential to implement
-
-### TO-DO
-
-- cure content and add comments/documentation to the scripts
-- add screenshots
-- double check on readme and cure info
 
 ### Features ideas
 
