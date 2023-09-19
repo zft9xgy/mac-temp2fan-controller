@@ -39,11 +39,9 @@ echo "Permission to write and execute added to corresponding files.......done"
 cd /sys/devices/platform/applesmc.768/
 
 # This code will set fans to manual mode.
-i=1
 for fan in /sys/devices/platform/applesmc.768/fan*_manual
 do
-  echo 1 > $fan
-  ((i = i + 1))
+  sudo echo 1 > $fan
 done
 
 echo "Manual mode fans on.......done"

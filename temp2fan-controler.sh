@@ -7,6 +7,13 @@ CURRENT_MAX_TEMP="$(sensors | grep T | grep + | tr -d '+' | tr -d ' ' | cut -d '
 FAN_NUMBERS="$(ls -1 /sys/devices/platform/applesmc.768/fan*_input | wc -l )"
 CONTROLER_MODE="$( cat ${PATH_CONFIG} | grep -i controler_model | tr -d ' ' | cut -d '=' -f 2 )"
 
+set_fan_write_mode () {
+    for fan in /sys/devices/platform/applesmc.768/fan*_manual
+    do
+      sudo echo 1 > $fan
+    done
+}
+
 set_max_and_min_rpm_variable () {
   i=1
   for fan in ${PATH_APPLESMC}fan*_min
@@ -111,6 +118,7 @@ linear_controler_temp2fan () {
 # MAIN EXECUTION
 
 set_max_and_min_rpm_variable
+set_fan_write_mode
 
 case $CONTROLER_MODE in
     1)
