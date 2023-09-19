@@ -10,7 +10,7 @@ CONTROLER_MODE="$( cat ${PATH_CONFIG} | grep -i controler_model | tr -d ' ' | cu
 set_fan_write_mode () {
     for fan in /sys/devices/platform/applesmc.768/fan*_manual
     do
-      sudo echo 1 > $fan
+      echo 1 > $fan
     done
 }
 
